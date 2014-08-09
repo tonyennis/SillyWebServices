@@ -21,9 +21,9 @@ function getNewPokeyHandler(_options_) {
                 result: typeof number === 'undefined' ? options.noData() : options.func(number),
                 delay_in_seconds:  Math.random() * (options.delay ? options.delay() : 3)
             };
-
+        //console.log("number "+ a.number);
         setTimeout(function () {
-            res.writeHead(200, {'Content-Type': 'text/json'});
+            res.writeHead(200, {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'});
             res.end(JSON.stringify(a));
         }, a.delay_in_seconds * 1000);
     };
@@ -53,6 +53,9 @@ function doubleIt() {
         },
         noData: function () {
             return 0;
+        },
+        delay: function () {
+            return 5;
         }
     };
 }
@@ -84,6 +87,9 @@ function time() {
         },
         noData: function (x) {
             return getTimeStamp();
+        },
+        delay: function () {
+            return 5;
         }
     }
 }
@@ -100,6 +106,9 @@ function seq() {
         },
         noData: function () {
             return ++seq;
+        },
+        delay: function () {
+            return 5;
         }
     }
 }

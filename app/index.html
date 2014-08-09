@@ -1,0 +1,33 @@
+<html>
+<head>
+    <LINK href="fetch.css" rel="stylesheet" type="text/css">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="PageController.js"></script>
+</head>
+<body ng-app="app" ng-controller="PageController">
+<div>serial: <input type="checkbox"
+            ng-model="serial"/>
+    <span ng-show="serial">The data will be fetched sequentially</span>
+    <span ng-show="!serial">The data will be fetched concurrently</span>
+</div>
+<div>
+    seq: <input type="text" ng-model="setSeq"/>
+    <br>
+    double: <input type="text" ng-model="setDoubleIt"/>
+</div>
+<button ng-click="fetchData()">Fetch</button>
+<table>
+    <td>seq</td>
+    <td>timestamp</td>
+    <td>content</td>
+    <td>double</td>
+    <tr>
+        <td>{{seq}}</td>
+        <td>{{timestamp}}</td>
+        <td>{{content}}</td>
+        <td>{{doubleIt}}</td>
+    </tr>
+</table>
+<div>{{status}}</div>
+</body>
+</html>
