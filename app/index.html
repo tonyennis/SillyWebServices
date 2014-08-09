@@ -10,6 +10,7 @@
     <span ng-show="serial">The data will be fetched sequentially</span>
     <span ng-show="!serial">The data will be fetched concurrently</span>
 </div>
+
 <div>
     seq: <input type="text" ng-model="setSeq"/>
     <br>
@@ -29,5 +30,6 @@
     </tr>
 </table>
 <div>{{status}}</div>
+<div id="spinner"><img src="images/spiffygif_30x30.gif" ng-show="waiting()"/></div>
 </body>
 </html>
